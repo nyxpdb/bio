@@ -1,0 +1,45 @@
+.spotify-section {
+    margin-top: 12px;
+    width: 100%;
+    padding: 8px;
+    background: rgba(30, 215, 96, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(30, 215, 96, 0.3);
+}
+
+.spotify-info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.spotify-album {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.spotify-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.spotify-song {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1DB954;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Poppins', sans-serif;
+}
+
+.spotify-artist {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Quicksand', sans-serif;
+}
