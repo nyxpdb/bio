@@ -45,10 +45,13 @@
             </div>
 
             <div id="app">
+                <!-- Loading Spinner -->
+                <div v-if="!isLoaded" class="loading-spinner"></div>
+
                 <div class="cards-wrapper" v-if="isLoaded">
-                    <a v-for="profile in profiles" :key="profile.id" class="profile-card"
+                    <a v-for="(profile, index) in profiles" :key="profile.id" class="profile-card"
                         :href="'https://discord.com/users/' + profile.id" target="_blank" data-tilt data-tilt-max="10"
-                        data-tilt-speed="400" data-tilt-perspective="1200">
+                        data-tilt-speed="400" data-tilt-perspective="1200" :style="{ '--i': index }">
 
                         <img class="profile-avatar" :src="profile.avatar || ''" :alt="profile.display_name || ''" />
 

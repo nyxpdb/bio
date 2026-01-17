@@ -105,7 +105,11 @@ createApp({
                     }
                 });
 
-                await Promise.all(fetchPromises);
+                // Minimum 2 second delay
+                const delayPromise = new Promise(resolve => setTimeout(resolve, 2000));
+
+                await Promise.all([Promise.all(fetchPromises), delayPromise]);
+
                 profiles.value = profiles.value.filter(p => p.username !== '');
                 console.log('[Profiles] Loaded successfully:', profiles.value.length, 'profiles');
                 isLoaded.value = true;
