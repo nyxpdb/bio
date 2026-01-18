@@ -1,6 +1,3 @@
-// ═══════════════════════════════════════════
-// PARTICLES SYSTEM - Sangue e Neve
-// ═══════════════════════════════════════════
 
 const canvas = document.getElementById('particles-canvas');
 const ctx = canvas.getContext('2d');
@@ -12,7 +9,6 @@ let lastMouseY = 0;
 let mouseSpeed = 0;
 let mouseRadius = 150;
 
-// Ajusta o canvas para tela cheia
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -21,7 +17,6 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-// Rastreia movimento do mouse
 window.addEventListener('mousemove', function (event) {
     lastMouseX = mouseX;
     lastMouseY = mouseY;
@@ -30,7 +25,6 @@ window.addEventListener('mousemove', function (event) {
     mouseSpeed = Math.sqrt(Math.pow(mouseX - lastMouseX, 2) + Math.pow(mouseY - lastMouseY, 2));
 });
 
-// Classe de partículas
 class Particle {
     constructor() {
         this.reset();
@@ -42,13 +36,12 @@ class Particle {
         this.size = Math.random() * 4 + 2;
         this.speedY = Math.random() * 1 + 0.5;
         this.speedX = Math.random() * 0.5 - 0.25;
-        this.type = Math.random() > 0.3 ? 'blood' : 'snow'; // 70% sangue, 30% neve
+        this.type = Math.random() > 0.3 ? 'blood' : 'snow';
         this.opacity = Math.random() * 0.6 + 0.4;
         this.gravity = this.type === 'blood' ? 0.15 : 0.07;
         this.rotation = Math.random() * 360;
         this.rotationSpeed = Math.random() * 2 - 1;
 
-        // Cores
         if (this.type === 'blood') {
             const shade = Math.floor(Math.random() * 60);
             this.color = `rgba(${170 + shade}, ${20 + shade}, ${20 + shade}, ${this.opacity})`;
@@ -57,7 +50,6 @@ class Particle {
             this.color = `rgba(${220 + shade}, ${220 + shade}, ${230 + shade}, ${this.opacity})`;
         }
 
-        // Características específicas
         if (this.type === 'blood') {
             this.width = this.size * (0.8 + Math.random() * 0.4);
             this.height = this.size * (1.2 + Math.random() * 0.8);
@@ -75,7 +67,6 @@ class Particle {
             ctx.beginPath();
 
             if (this.stretched) {
-                // Gota esticada
                 ctx.moveTo(this.x, this.y - this.height / 2);
                 ctx.quadraticCurveTo(
                     this.x - this.width / 2,
@@ -90,7 +81,6 @@ class Particle {
                     this.y - this.height / 2
                 );
             } else {
-                // Gota circular
                 ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
                 ctx.shadowBlur = 2;
                 ctx.arc(this.x, this.y, this.size / 2, 0, Math.PI * 2);
@@ -100,7 +90,6 @@ class Particle {
             ctx.fill();
 
         } else {
-            // Floco de neve
             ctx.translate(this.x, this.y);
             ctx.rotate(this.rotation * Math.PI / 180);
             ctx.strokeStyle = this.color;
@@ -112,7 +101,6 @@ class Particle {
                 const angle = (i * 360 / this.points) * Math.PI / 180;
                 const length = this.size;
 
-                // Linha principal
                 ctx.beginPath();
                 ctx.moveTo(0, 0);
                 ctx.lineTo(
@@ -121,7 +109,6 @@ class Particle {
                 );
                 ctx.stroke();
 
-                // Ramificações
                 const branchLength = length / 3;
                 const branchStart = length / 2.5;
 
@@ -161,7 +148,6 @@ class Particle {
             this.rotation += this.rotationSpeed;
         }
 
-        // Interação com mouse
         const dx = this.x - mouseX;
         const dy = this.y - mouseY;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -175,7 +161,6 @@ class Particle {
             this.speedX += Math.cos(angle) * force * 0.5;
             this.speedY += Math.sin(angle) * force * 0.5;
 
-            // Limita velocidade
             const maxSpeed = 6;
             const currentSpeed = Math.sqrt(this.speedX * this.speedX + this.speedY * this.speedY);
             if (currentSpeed > maxSpeed) {
@@ -184,7 +169,6 @@ class Particle {
             }
         }
 
-        // Reinicia quando sai da tela
         if (this.y > canvas.height + 10) {
             this.reset();
         }
@@ -195,7 +179,6 @@ class Particle {
     }
 }
 
-// Inicializa partículas
 function initParticles() {
     particlesArray = [];
     const numberOfParticles = Math.min(120, Math.floor(window.innerWidth / 8));
@@ -206,7 +189,6 @@ function initParticles() {
     }
 }
 
-// Anima partículas
 function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -218,7 +200,6 @@ function animateParticles() {
     requestAnimationFrame(animateParticles);
 }
 
-// Inicia efeito
 function startParticlesEffect() {
     initParticles();
     animateParticles();

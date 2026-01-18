@@ -2,16 +2,15 @@ const IDS = [
     "1354342978466086922", // Victor
     "857114076232024075",  // Luis
     "111183474307682304",  // Joao
-    "1135681862254207086"
+    "1135681862254207086"  // Joao
 ];
 
 const LOADING_TIMEOUT = 10000;
 
 
 
-const CUSTOM_BADGES =
-{
-    
+const CUSTOM_BADGES = {
+    // Custom badges can be added here if needed
 };
 
 
@@ -28,7 +27,7 @@ const SOCIALS = [
         instagram: { url: "https://instagram.com/us2k", username: "@us2k" }
     },
     {
-        // No socials for 1135681862254207086
+        instagram: { url: "https://instagram.com/us2k", username: "@us2k" }
     }
 ];
 
