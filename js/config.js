@@ -1,36 +1,34 @@
 const IDS = [
-    "1418968299286433872",
-    "857114076232024075",
-    "1354342978466086922",
-    "1447321314837659819"
+    "1354342978466086922", // Victor
+    "857114076232024075",  // Luis
+    "111183474307682304",  // Joao
+    "1135681862254207086"
 ];
 
 const LOADING_TIMEOUT = 10000;
 
 
 
-const CUSTOM_BADGES = {
-    "1071094341617057822": [
-        { icon: "https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png", name: "Discord Employee" },
-        { icon: "assets/badges/gold.png", name: "Ouro" },
-        { icon: "assets/badges/lvl3.png", name: "Nível 3" }
-    ]
+const CUSTOM_BADGES =
+{
+    
 };
 
 
 
 const SOCIALS = [
     {
-        tiktok: { url: "https://tiktok.com/@", username: "@tiktok" },
-        instagram: { url: "https://instagram.com/", username: "@instagram" }
+        instagram: { url: "https://instagram.com/conselhosdacoroa", username: "@conselhosdacoroa" }
     },
     {
-        tiktok: { url: "https://tiktok.com/@", username: "@tiktok" },
-        instagram: { url: "https://instagram.com/", username: "@instagram" }
+        tiktok: { url: "https://tiktok.com/@anjosmecercam", username: "@anjosmecercam" },
+        instagram: { url: "https://instagram.com/evilnowcry", username: "@evilnowcry" }
     },
     {
-        tiktok: { url: "https://tiktok.com/@", username: "@tiktok" },
-        instagram: { url: "https://instagram.com/", username: "@instagram" }
+        instagram: { url: "https://instagram.com/us2k", username: "@us2k" }
+    },
+    {
+        // No socials for 1135681862254207086
     }
 ];
 
