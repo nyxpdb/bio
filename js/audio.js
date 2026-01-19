@@ -1,7 +1,3 @@
-// ═══════════════════════════════════════════
-// AUDIO CONTROL
-// ═══════════════════════════════════════════
-
 let isAudioPlaying = false;
 
 function initAudio() {

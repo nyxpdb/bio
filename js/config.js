@@ -1,16 +1,20 @@
 const IDS = [
     "1354342978466086922", // Victor
     "857114076232024075",  // Luis
-    "111183474307682304",  // Joao
-    "1135681862254207086"  // Joao
+    "1135681862254207086", // Joao
+    "1455097938455040097", // bagivenchy
+    "440606656905216001",  // ref
+    "408977215678840842",   // dox
+    "1215423706994712611" // enzo
 ];
 
 const LOADING_TIMEOUT = 10000;
 
 
 
-const CUSTOM_BADGES = {
-    // Custom badges can be added here if needed
+const CUSTOM_BADGES =
+{
+
 };
 
 
@@ -28,6 +32,15 @@ const SOCIALS = [
     },
     {
         instagram: { url: "https://instagram.com/us2k", username: "@us2k" }
+    },
+    {
+        instagram: { url: "https://instagram.com/bagivenchy", username: "@bagivenchy" }
+    },
+    {
+        instagram: { url: "https://instagram.com/ref", username: "@ref" }
+    },
+    {
+        instagram: { url: "https://instagram.com/dox", username: "@dox" }
     }
 ];
 

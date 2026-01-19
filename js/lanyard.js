@@ -1,6 +1,4 @@
-// ═══════════════════════════════════════════
-// LANYARD WEBSOCKET CONNECTION
-// ═══════════════════════════════════════════
+
 
 let lanyardSocket = null;
 let loadingTimeout = null;
@@ -9,7 +7,6 @@ let hasReceivedData = false;
 function connectToLanyard() {
     hasReceivedData = false;
 
-    // Configurar timeout para carregamento
     loadingTimeout = setTimeout(() => {
         if (!hasReceivedData) {
             console.error('⏱️ Timeout: Não foi possível carregar dados do Discord');
@@ -28,13 +25,12 @@ function connectToLanyard() {
             const message = JSON.parse(event.data);
 
             switch (message.op) {
-                case 1: // Hello
+                case 1:
                     lanyardSocket.send(JSON.stringify({
                         op: 2,
                         d: { subscribe_to_id: DISCORD_USER_ID }
                     }));
 
-                    // Heartbeat
                     setInterval(() => {
                         if (lanyardSocket.readyState === WebSocket.OPEN) {
                             lanyardSocket.send(JSON.stringify({ op: 3 }));
@@ -42,7 +38,7 @@ function connectToLanyard() {
                     }, message.d.heartbeat_interval);
                     break;
 
-                case 0: // Event
+                case 0:
                     if (message.t === 'INIT_STATE' || message.t === 'PRESENCE_UPDATE') {
                         hasReceivedData = true;
                         clearTimeout(loadingTimeout);
@@ -55,7 +51,6 @@ function connectToLanyard() {
         lanyardSocket.onclose = () => {
             console.log('🔴 Desconectado do Lanyard');
             if (hasReceivedData) {
-                // Só reconecta se já tiver recebido dados antes
                 setTimeout(connectToLanyard, 5000);
             }
         };
@@ -97,7 +92,6 @@ function retryConnection() {
     profileContent.classList.add('hidden');
     skeletonLoader.classList.remove('hidden');
 
-    // Aguardar um pouco antes de reconectar
     setTimeout(() => {
         connectToLanyard();
     }, 500);
